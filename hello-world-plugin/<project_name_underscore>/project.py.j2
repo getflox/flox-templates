@@ -1,0 +1,9 @@
+from floxcore.context import Flox
+
+
+def display_user(flox: Flox, out):
+    out.info(f"Hello {flox.settings.{{ project_name_underscore }}.name}!")
+
+
+def display_password(flox: Flox, out):
+    out.info(f"Your password is: {flox.secrets.getone('{{ project_name_underscore }}_password', required=True)}!")

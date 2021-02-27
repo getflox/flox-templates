@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "{{ project_name_hyphen }}"
+version = "0.1.0"
+description = "{{ project_name }} plugin!"
+authors = ["Your name <your.email@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.plugins."flox.plugin"]
+{{project_name_underscore}} = "{{project_name_underscore}}:plugin"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

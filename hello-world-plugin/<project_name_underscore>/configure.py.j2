@@ -1,0 +1,18 @@
+from typing import Tuple
+
+from floxcore.config import Configuration, ParamDefinition
+
+
+class {{ project_name_camel_case }}Configuration(Configuration):
+    def parameters(self) -> Tuple[ParamDefinition, ...]:
+        return (
+            ParamDefinition("name", "Your name"),
+        )
+
+    def secrets(self) -> Tuple[ParamDefinition, ...]:
+        return (
+            ParamDefinition("password", "Your secret password", secret=True),
+        )
+
+    def schema(self):
+        pass

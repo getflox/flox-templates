@@ -1,0 +1,20 @@
+import os
+import secrets
+
+from {{ project_name_underscore }}.main.main import main_bp
+
+from flask import Flask
+
+app = Flask(__name__)
+app.secret_key = os.environ.get("SECRET_KEY", secrets.token_urlsafe(16))
+
+app.register_blueprint(main_bp)
+
+
+@app.teardown_appcontext
+def after_request(response):
+    """Clean up of resources"""
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=os.environ.get("FLASK_RUN_PORT"))

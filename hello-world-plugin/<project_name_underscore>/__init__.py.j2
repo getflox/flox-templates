@@ -1,0 +1,21 @@
+from floxcore.command import Stage
+from floxcore.context import Flox
+from floxcore.plugin import Plugin
+
+from {{ project_name_underscore }}.configure import {{ project_name_camel_case }}Configuration
+from {{ project_name_underscore }}.project import display_user, display_password
+
+
+class {{ project_name_camel_case }}Plugin(Plugin):
+    def configuration(self):
+        return {{ project_name_camel_case }}Configuration()
+
+    def handle_project(self, flox: Flox):
+        return [
+            Stage(display_user),
+            Stage(display_password),
+        ]
+
+
+def plugin():
+    return {{ project_name_camel_case }}Plugin()
